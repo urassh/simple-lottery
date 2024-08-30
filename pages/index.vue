@@ -19,6 +19,7 @@ function drawNumber() {
     <div class="flex-1 flex items-center justify-center">
       <div class="w-full max-w-md p-4 bg-transparentWhite rounded-lg">
         <h1 class="text-center text-2xl font-bold mb-4">昼夜祭・特別抽選</h1>
+
         <!-- 抽選ボタンセクション -->
         <div>
           <button @click="drawNumber" class="w-full bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">

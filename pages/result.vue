@@ -7,11 +7,10 @@ const route = useRoute()
 const resultNumber = route.query.number || '000'
 
 onMounted(() => {
-  // 紙吹雪を発生させる
   confetti({
-    particleCount: 200,
-    spread: 70,
-    origin: { y: 0.6 }
+    particleCount: 400,
+    spread: 80,
+    origin: { y: 0.8 }
   })
 })
 </script>
