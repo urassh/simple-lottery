@@ -21,7 +21,7 @@ function drawNumber() {
         <h1 class="text-center text-2xl font-bold mb-4">昼夜祭・特別抽選</h1>
         <!-- 抽選ボタンセクション -->
         <div>
-          <button @click="drawNumber" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          <button @click="drawNumber" class="w-full bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">
             抽選する
           </button>
         </div>
