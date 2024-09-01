@@ -1,9 +1,25 @@
 <script setup lang="ts">
 import { usePersist } from '~/composables/persist';
 import { useRouter } from 'vue-router';
+import {onMounted, onUnmounted} from 'vue';
 
 const numbers = usePersist<string[]>('numbers', () => []);
 const router = useRouter();
+
+function handleKeyDown(event: KeyboardEvent) {
+  if (event.code === 'Space') {
+    event.preventDefault(); // スペースキーがスクロールなどのデフォルトアクションを起こさないようにする
+    drawNumber();
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeyDown);
+});
+
+onUnmounted(() => {
+  window.addEventListener('keydown', handleKeyDown);
+});
 
 function drawNumber() {
   const randomNumber = Math.floor(Math.random() * 301).toString().padStart(3, '0');

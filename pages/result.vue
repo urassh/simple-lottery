@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import confetti from 'canvas-confetti'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
+const router = useRouter()
 const resultNumber = route.query.number || '000'
+
+function handleKeyDown(event: KeyboardEvent) {
+  if (event.code === 'Space') {
+    event.preventDefault() // スペースキーがスクロールなどのデフォルトアクションを起こさないようにする
+    router.push('/')
+  }
+}
 
 onMounted(() => {
   confetti({
@@ -12,6 +20,11 @@ onMounted(() => {
     spread: 80,
     origin: { y: 0.8 }
   })
+  window.addEventListener('keydown', handleKeyDown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeyDown)
 })
 </script>
 
