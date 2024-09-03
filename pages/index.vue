@@ -18,7 +18,7 @@ function drawNumber() {
     <!-- 中央のセクション -->
     <div class="flex-1 flex items-center justify-center">
       <div class="w-full max-w-md p-4 bg-transparentWhite rounded-lg">
-        <h1 class="text-center text-2xl font-bold mb-4">昼夜祭・特別抽選</h1>
+        <h1 class="text-center text-2xl font-bold mb-4">中夜祭・抽選</h1>
 
         <!-- 抽選ボタンセクション -->
         <div>
