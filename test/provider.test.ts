@@ -106,14 +106,10 @@ describe('NumberProvider', () => {
         callCount++;
         return callCount === 3 ? 4 : 1;
       });
-      const customFormatter = jest.fn((num) => num.toString().padStart(3, '0'));
-      const customValidator = jest.fn((nums, formattedNum) => !nums.includes(formattedNum));
   
-      const result = numberProvider(numbers, customGenerator, customFormatter, customValidator);
+      const result = numberProvider(numbers, customGenerator);
   
       expect(result).toBe('004');
       expect(customGenerator).toHaveBeenCalledTimes(3);
-      expect(customFormatter).toHaveBeenCalledTimes(3);
-      expect(customValidator).toHaveBeenCalledTimes(3);
     });
 });

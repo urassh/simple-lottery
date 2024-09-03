@@ -13,7 +13,7 @@ const numberFormatter = (number: number): string => {
     return number.toString().padStart(3, '0');
 }
 
-const numberValidator = (numbers: string[], formattedNumber: string) => {
+const numberValidator = (numbers: string[], formattedNumber: string): boolean => {
     const numberAsInt = parseInt(formattedNumber, 10);
     const isExist = numbers.includes(formattedNumber);
     const isExcludedNumber = excludedNumbers.includes(formattedNumber);
