@@ -1,25 +1,35 @@
 const maxNumber = 300;
 const excludedNumbers = ['000'];
 
-export const numberProvider = (numbers: string[]): string => {
-    while (true) {
-        const randomNumber = Math.floor(Math.random() * (maxNumber + 1));
-        const formattedNumber = numberFormatter(randomNumber);
-        const isValid = numberValidator(numbers, formattedNumber);
+type RandomNumberGenerator = () => number;
 
-        if (isValid) {
-            return formattedNumber;
-        }
+const defaultRandomNumberGenerator: RandomNumberGenerator = () => 
+  Math.floor(Math.random() * (maxNumber));
+
+export const numberProvider = (
+  numbers: string[],
+  randomNumberGenerator: RandomNumberGenerator = defaultRandomNumberGenerator
+): string => {
+  while (true) {
+    const randomNumber = randomNumberGenerator();
+    const formattedNumber = numberFormatter(randomNumber);
+    const isValid = numberValidator(numbers, formattedNumber);
+
+    if (isValid) {
+      return formattedNumber;
     }
+  }
 }
 
 export const numberFormatter = (number: number) => {
     return number.toString().padStart(3, '0');
 }
 
-const numberValidator = (numbers: string[], formattedNumber: string) => {
+export const numberValidator = (numbers: string[], formattedNumber: string) => {
+    const numberAsInt = parseInt(formattedNumber, 10);
     const isExist = numbers.includes(formattedNumber);
     const isExcludedNumber = excludedNumbers.includes(formattedNumber);
-    const invalid = isExist || isExcludedNumber;
+    const isOverMaxNumber = numberAsInt > maxNumber;
+    const invalid = isExist || isExcludedNumber || isOverMaxNumber;
     return !invalid;
 }

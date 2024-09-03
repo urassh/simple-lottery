@@ -11,7 +11,7 @@ export const usePersist = <T>(key: string, init: () => T): Ref<T> => {
     const refs: Ref<T> = useState<T>(key, () => (storedValue !== null) ? storedValue : initResult) as Ref<T>
 
     if (isClient) {
-        watch(refs, (newValue) => {
+        watch(refs, (newValue: T) => {
             localStorage.setItem(key, JSON.stringify(newValue))
         }, { deep: true })
     }
