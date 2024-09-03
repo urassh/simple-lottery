@@ -1,18 +1,18 @@
 const maxNumber = 300;
 const excludedNumbers = ['000'];
 
-type RandomNumberGenerator = () => number;
+type NumberGenerator = () => number;
 
-const defaultRandomNumberGenerator: RandomNumberGenerator = () => 
-  Math.floor(Math.random() * (maxNumber));
+const randomNumberGenerator: NumberGenerator = () => 
+  Math.floor(Math.random() * maxNumber);
 
 export const numberProvider = (
   numbers: string[],
-  randomNumberGenerator: RandomNumberGenerator = defaultRandomNumberGenerator
+  numberGenerator: NumberGenerator = randomNumberGenerator
 ): string => {
   while (true) {
-    const randomNumber = randomNumberGenerator();
-    const formattedNumber = numberFormatter(randomNumber);
+    const generatedNumber = numberGenerator();
+    const formattedNumber = numberFormatter(generatedNumber);
     const isValid = numberValidator(numbers, formattedNumber);
 
     if (isValid) {
