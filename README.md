@@ -36,8 +36,6 @@ yarn dev
 
 # bun
 bun run dev
-
-# ci test
 ```
 
 ## Production
