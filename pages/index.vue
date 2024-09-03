@@ -6,13 +6,14 @@ const numbers = usePersist<string[]>('numbers', () => []);
 const router = useRouter();
 
 function drawNumber() {
-  const randomNumber = Math.floor(Math.random() * 301).toString().padStart(3, '0');
-  numbers.value.push(randomNumber);
-  // 抽選結果画面に遷移
-  router.push({ path: '/result', query: { number: randomNumber } });
-}
-</script>
+  const drewNumber = numberProvider(numbers.value);
 
+  numbers.value.push(drewNumber);
+
+  router.push({ path: '/result', query: { number: drewNumber } });
+}
+
+</script>
 <template>
   <div class="min-h-screen bg-gray-900 text-white flex">
     <!-- 中央のセクション -->
