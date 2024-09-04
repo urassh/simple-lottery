@@ -1,5 +1,5 @@
 <template>
-  <NuxtPage>
+  <NuxtPage id="page">
 
   </NuxtPage>
 </template>
@@ -10,5 +10,9 @@
 }
 .page-enter, .page-leave-to {
   opacity: 0;
+}
+
+#page {
+  padding: 2%;
 }
 </style>
