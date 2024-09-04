@@ -6,7 +6,7 @@ type NumberFormatter = (number: number) => string;
 type NumberValidator = (numbers: string[], formattedNumber: string) => boolean;
 
 const randomNumberGenerator = (): number => {
-  return Math.floor(Math.random() * maxNumber);
+  return Math.floor(Math.random() * (maxNumber + 1));
 }
 
 const numberFormatter = (number: number): string => {

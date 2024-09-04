@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1725449313532" clover="3.2.0">
-  <project timestamp="1725449313532" name="All files">
+<coverage generated="1725450442778" clover="3.2.0">
+  <project timestamp="1725450442779" name="All files">
     <metrics statements="69" coveredstatements="0" conditionals="13" coveredconditionals="0" methods="15" coveredmethods="0" elements="97" coveredelements="0" complexity="0" loc="69" ncloc="69" packages="1" files="2" classes="2"/>
     <file name="index.vue" path="/Users/urassh/Documents/NuxtProjects/lottery/pages/index.vue">
       <metrics statements="34" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="0"/>
