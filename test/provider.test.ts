@@ -69,20 +69,36 @@ describe('NumberProvider', () => {
   
     test('既存の数字を避けて新しい数字を生成する', () => {
       const numbers = ['001', '002', '003', '004', '005'];
-      const result = numberProvider(numbers);
+      let callCount = 0;
+      const customGenerator = jest.fn(() => {
+        callCount++;
+        return callCount;
+      });
+      const result = numberProvider(numbers, customGenerator);
+      expect(result).toBe('006');
       expect(numbers).not.toContain(result);
     });
   
     test('除外された数字を生成しない', () => {
       const numbers: string[] = [];
-      const result = numberProvider(numbers);
+      let callCount = 0;
+      const customGenerator = jest.fn(() => {
+        callCount++;
+        return callCount === 3 ? 0 : 1;
+      });
+      const result = numberProvider(numbers, customGenerator);
       expect(result).not.toBe('000');
     });
   
     test('最大値を超える数字を生成しない', () => {
       const numbers: string[] = [];
-      const result = numberProvider(numbers);
-      expect(parseInt(result, 10)).toBeLessThanOrEqual(300);
+      let callCount = 0;
+      const customGenerator = jest.fn(() => {
+        callCount++;
+        return callCount === 3 ? 300 : 301;
+      });
+      const result = numberProvider(numbers, customGenerator);
+      expect(parseInt(result, 10)).toBe(300);
     });
   
     test('カスタムジェネレーター、フォーマッター、バリデーターを使用する', () => {
