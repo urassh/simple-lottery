@@ -29,19 +29,61 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center">
-    <div class="w-full max-w-md p-4 bg-transparentWhite rounded-lg text-center">
-      <h2 class="text-3xl font-bold mb-1">抽選結果</h2>
-      <p class="text-[200px] mb-8">{{ resultNumber }}</p>
-      <NuxtLink to="/" class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">
+  <div class="result-container">
+    <div class="result-box">
+      <h2 class="result-title">抽選結果</h2>
+      <p class="result-number">{{ resultNumber }}</p>
+      <NuxtLink to="/" class="back-button">
         戻る
       </NuxtLink>
+      <p class="text-center text-sm text-gray-400 mt-4">or スペースキーで戻る</p>
     </div>
   </div>
 </template>
 
 <style scoped>
-.bg-transparentWhite {
+.result-container {
+  min-height: 100vh;
+  background-color: #1a202c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-box {
+  width: 100%;
+  max-width: 28rem;
+  padding: 2rem;
   background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.result-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.result-number {
+  font-size: 12.5rem;
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  background-color: #d53f8c;
+  color: white;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #b83280;
+  }
 }
 </style>
