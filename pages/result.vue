@@ -4,15 +4,28 @@ import confetti from 'canvas-confetti'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const router = useRouter()
 const resultNumber = route.query.number || '000'
 
+function handleKeyup(event: KeyboardEvent) {
+  if (event.code === 'Space') {
+    router.push('/')
+  }
+}
+
 onMounted(() => {
+  window.addEventListener('keyup', handleKeyup);
+
   confetti({
     particleCount: 400,
     spread: 80,
     origin: { y: 0.8 }
   })
-})
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keyup', handleKeyup);
+});
 </script>
 
 <template>

@@ -13,6 +13,20 @@ function drawNumber() {
   router.push({ path: '/result', query: { number: drewNumber } });
 }
 
+function handleKeyup(event: KeyboardEvent) {
+  if (event.code === 'Space') {
+    drawNumber();
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keyup', handleKeyup);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keyup', handleKeyup);
+});
+
 </script>
 <template>
   <div class="min-h-screen bg-gray-900 text-white flex ">
