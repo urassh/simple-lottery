@@ -40,6 +40,7 @@ onUnmounted(() => {
           <button @click="drawNumber" class="w-full bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">
             抽選する
           </button>
+          <p class="text-center text-sm text-gray-400 mt-4">or スペースキーで抽選</p>
         </div>
       </div>
     </div>
