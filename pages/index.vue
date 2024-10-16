@@ -33,7 +33,7 @@ onUnmounted(() => {
     <!-- 中央のセクション -->
     <div class="flex-1 flex items-center justify-center">
       <div class="w-full max-w-md p-4 bg-transparentWhite rounded-lg">
-        <h1 class="text-center text-2xl font-bold mb-4">中夜祭・抽選</h1>
+        <h1 class="text-center text-4xl font-bold mb-4">カウントナンバー</h1>
 
         <!-- 抽選ボタンセクション -->
         <div>
@@ -42,18 +42,6 @@ onUnmounted(() => {
           </button>
           <p class="text-center text-sm text-gray-400 mt-4">or スペースキーで抽選</p>
         </div>
-      </div>
-    </div>
-
-    <!-- 抽選結果セクション -->
-    <div class="result-section">
-      <h2>抽選結果</h2>
-      <div class="result-list-container">
-        <ul>
-          <li v-for="(number, index) in numbers" :key="index">
-            {{ number }}
-          </li>
-        </ul>
       </div>
     </div>
   </div>
