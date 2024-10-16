@@ -1,4 +1,4 @@
-const maxNumber = 300;
+const maxNumber = 100;
 const excludedNumbers = ['000'];
 
 type NumberGenerator = () => number;
